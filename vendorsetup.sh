@@ -1,0 +1,1 @@
+add_lunch_combo cm_nx531j-userdebug
