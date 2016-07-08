@@ -1,0 +1,9 @@
+
+#Nubia add start, for woodpeckerd
+service woodpeckerd /system/bin/woodpeckerd
+    class main
+    socket woodpeckerd stream 0666 root system
+    seclabel u:r:woodpeckerd:s0
+on property:sys.nblog.control=on
+    start woodpeckerd
+#Nubia add end

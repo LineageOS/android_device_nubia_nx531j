@@ -24,12 +24,30 @@ $(call inherit-product-if-exists, vendor/zte/nx531j/nx531j-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/zte/nx531j/overlay
 
-
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/zte/nx531j/kernel
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+# Kernel
+ifneq ($(TARGET_PREBUILT_KERNEL),)
+    PRODUCT_COPY_FILES += $(TARGET_PREBUILT_KERNEL):kernel
 endif
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_KERNEL):kernel
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    ueventd.qcom.rc \
+    init.class_main.sh \
+    init.cmx.rc \
+    init.mdm.sh \
+    init.nubia.extend.usb.rc \
+    init.nubia.sh \
+    init.nubia.usb.rc \
+    init.project.rc \
+    init.qcom.class_core.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.rc \
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qcom.syspart_fixup.sh \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh \
+    init.rom.rc \
+    init.target.rc \
+    init.ztemt.production.rc
