@@ -22,7 +22,16 @@
 
 $(call inherit-product-if-exists, vendor/zte/nx531j/nx531j-vendor.mk)
 
+# Overlays
 DEVICE_PACKAGE_OVERLAYS += device/zte/nx531j/overlay
+
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080
 
 # Kernel
 ifneq ($(TARGET_PREBUILT_KERNEL),)
@@ -51,3 +60,12 @@ PRODUCT_PACKAGES += \
     init.rom.rc \
     init.target.rc \
     init.ztemt.production.rc
+
+# Display
+PRODUCT_PACKAGES += \
+    copybit.msm8996 \
+    gralloc.msm8996 \
+    hwcomposer.msm8996 \
+    memtrack.msm8996 \
+    liboverlay \
+    libtinyxml
