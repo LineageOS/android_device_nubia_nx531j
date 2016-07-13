@@ -167,11 +167,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
-# DPM
-# PRODUCT_PACKAGES += \
-#     com.qti.dpmframework \
-#     dpmapi
-
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
     fingerprintd

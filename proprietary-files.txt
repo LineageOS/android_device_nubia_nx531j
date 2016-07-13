@@ -387,9 +387,13 @@ etc/cne/andsfCne.xml
 etc/permissions/ConnectivityExt.xml
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
+etc/permissions/com.quicinc.wbc.xml
+etc/permissions/com.quicinc.wbcservice.xml
 framework/ConnectivityExt.jar
 framework/cneapiclient.jar
 framework/com.quicinc.cne.jar
+framework/com.quicinc.wbc.jar
+framework/com.quicinc.wbcservice.jar
 !priv-app/CNEService/CNEService.apk
 vendor/lib/libNimsWrap.so
 vendor/lib/libcne.so
@@ -417,7 +421,7 @@ etc/permissions/dpmapi.xml
 framework/com.qti.dpmframework.jar
 framework/dpmapi.jar
 framework/tcmclient.jar
-!priv-app/dpmserviceapp/dpmserviceapp.apk
+# !priv-app/dpmserviceapp/dpmserviceapp.apk
 vendor/lib/libdpmctmgr.so
 vendor/lib/libdpmfdmgr.so
 vendor/lib/libdpmframework.so
@@ -459,7 +463,9 @@ vendor/lib64/hw/gatekeeper.msm8996.so
 bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
+etc/permissions/com.qualcomm.location.vzw_library.xml
 framework/com.qti.location.sdk.jar
+framework/com.qualcomm.location.vzw_library.jar
 lib/libloc_api_v02.so
 lib64/libloc_api_v02.so
 !priv-app/com.qualcomm.location/com.qualcomm.location.apk
