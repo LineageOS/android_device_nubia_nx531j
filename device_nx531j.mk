@@ -197,10 +197,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
 # IPv6
-# PRODUCT_PACKAGES += \
-#     ebtables \
-#     ethertypes \
-#     libebtc
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libebtc
 
 # IRQ Balancer
 PRODUCT_COPY_FILES += \
@@ -274,7 +274,9 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    qti-telephony-common \
     librmnetctl \
+    libtime_genoff \
     libtinyxml2 \
     libxml2
 
@@ -319,6 +321,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/fstman.ini:system/etc/wifi/fstman.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0

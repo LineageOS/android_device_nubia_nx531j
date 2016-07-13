@@ -715,7 +715,6 @@ etc/permissions/telephonyservice.xml
 framework/embmslibrary.jar
 framework/qcnvitems.jar
 framework/qcrilhook.jar
-framework/qti-telephony-common.jar
 framework/QtiTelephonyServicelibrary.jar
 !priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
@@ -782,9 +781,7 @@ vendor/lib64/libthermalioctl.so
 # Time services
 !app/TimeService/TimeService.apk
 bin/time_daemon
-vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
-vendor/lib64/libtime_genoff.so
 vendor/lib64/libTimeService.so
 
 # TP firmware
