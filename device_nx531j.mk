@@ -166,6 +166,9 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libtinyxml
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=480
+
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m

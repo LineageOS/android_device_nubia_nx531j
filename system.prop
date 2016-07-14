@@ -30,7 +30,6 @@ debug.gralloc.enable_fb_ubwc=1
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 
-ro.sf.lcd_density=480
 #ro.hdmi.enable=true
 #persist.speaker.prot.enable=false
 qcom.hw.aac.encoder=true
@@ -190,19 +189,6 @@ ro.vendor.at_library=libqti-at.so
 sys.games.gt.prof=1
 sys.apps.hwaccel.enable=1
 
-#hwui properties
-ro.hwui.texture_cache_size=72
-ro.hwui.layer_cache_size=48
-ro.hwui.r_buffer_cache_size=8
-ro.hwui.path_cache_size=32
-ro.hwui.gradient_cache_size=1
-ro.hwui.drop_shadow_cache_size=6
-ro.hwui.texture_cache_flushrate=0.4
-ro.hwui.text_small_cache_width=1024
-ro.hwui.text_small_cache_height=1024
-ro.hwui.text_large_cache_width=2048
-ro.hwui.text_large_cache_height=1024
-
 #Disable property for Dolby ds2
 audio.dolby.ds2.enabled=true
 
@@ -264,84 +250,6 @@ persist.power.logs.off.time=240
 persist.power.logs.off.level=8
 persist.power.logs.on.time=20
 persist.power.logs.on.level=10
-
-#
-# ADDITIONAL_BUILD_PROPERTIES
-#
-dalvik.vm.heapgrowthlimit=256m
-dalvik.vm.heapminfree=4m
-persist.sys.ap.restart_level=0
-persist.sys.ssr.restart_level=3
-keyguard.no_require_sim=true
-ro.com.android.dataroaming=false
-ro.com.android.mobiledata=false
-ro.config.ringtone=nubia_mile.ogg
-ro.config.notification_sound=Jingle.ogg
-ro.config.message_sound=magic_bell.ogg
-ro.config.alarm_alert=peaceful_wave.ogg
-ro.carrier=unknown
-ro.vendor.extension_library=libqti-perfd-client.so
-persist.radio.apm_sim_not_pwdn=1
-persist.radio.sib16_support=1
-persist.radio.custom_ecc=0
-persist.radio.multisim.config=dsds
-ro.telephony.default_cdma_sub=0
-dalvik.vm.heapstartsize=8m
-dalvik.vm.heapsize=512m
-dalvik.vm.heaptargetutilization=0.75
-dalvik.vm.heapmaxfree=8m
-af.fast_track_multiplier=2
-audio_hal.period_size=192
-camera.disable_zsl_mode=1
-drm.service.enabled=true
-ro.com.google.clientidbase=android-google
-persist.sys.timezone=Asia/Shanghai
-sys.nubia_safe_preset=1
-ro.setupwizard.mode=OPTIONAL
-ro.com.google.gmsversion=6.0_r2
-ro.com.google.clientidbase.ms=android-zte
-ro.com.google.clientidbase.am=android-zte
-ro.com.google.clientidbase.gmm=android-zte
-ro.com.google.clientidbase.yt=android-zte
-ro.build.rom.id=V4.0
-ro.build.rom.internal.id=V4.0.0.0
-ro.build.nubia.rom.code=V3.0
-ro.build.nubia.rom.name=nubiaUI
-persist.sys.switch_se=2
-persist.sys.remove_beam=1
-persist.sys.power.sound=1
-audio.effect.name=dolby
-persist.sys.lcd.colortmp=127
-ro.build.audio.internal.id=V1.2.6
-ro.build.audio.dolby_params.ver=V1.0.2
-ro.build.audio.pa_params.ver=V1.0.1
-ro.build.camera.internal.id=V6.60.0.45.3
-ro.nubia.edge.enable=1
-ro.nubia.edge.area.width=36,70
-ro.nubia.softsim_roaming.enable=1
-persist.factory.fingerprint=true
-ro.nubia.applock.enable=1
-persist.sys.singlehand=1
-persist.sys.cmplus.oemwhitelist=/system/etc/container/extra_oem_clone_box_policy.xml
-persist.factory.nfc=false
-persist.factory.nfc_additional=true
-persist.factory.nfc_no_reader=true
-persist.sys.dalvik.vm.lib.2=libart
-dalvik.vm.isa.arm64.variant=kryo
-dalvik.vm.isa.arm64.features=default
-dalvik.vm.isa.arm.variant=cortex-a53
-dalvik.vm.isa.arm.features=default
-net.bt.name=Android
-dalvik.vm.stack-trace-file=/data/anr/traces.txt
-persist.gps.qc_nlp_in_use=1
-persist.loc.nlp_name=com.qualcomm.location
-ro.gps.agps_provider=1
-persist.radio.calls.on.ims=0
-persist.radio.jbims=0
-persist.radio.csvt.enabled=false
-persist.radio.rat_on=combine
-persist.radio.mt_sms_ack=20
-ro.expect.recovery_id=0x6d17f77e2e57a1db24d61cedf4d62dc5e528f113000000000000000000000000
 
 #
 # import /system/vendor/default.prop
