@@ -95,10 +95,9 @@ vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
 
 # Camera
+bin/mm-qcamera-app
 bin/mm-qcamera-daemon
-etc/camera/imx179_chromatix.xml
-etc/camera/imx298_ois_chromatix.xml
-etc/camera/msm8996_camera.xml
+framework/org.codeaurora.camera.jar
 lib/hw/camera.msm8996.so
 lib/libarcsoft_beautyshot.so
 lib/libarcsoft_beautyshot_image_algorithm.so
@@ -148,7 +147,7 @@ vendor/lib/libmmcamera_hvx_grid_sum.so
 vendor/lib/libmmcamera_hvx_zzHDR.so
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_imglib_faceproc_adspstub.so
-vendor/lib/libmmcamera_imx179.so
+vendor/lib/libmmcamera_imx179_4lane.so
 vendor/lib/libmmcamera_imx298_ois.so
 vendor/lib/libmmcamera_isp_abf47.so
 vendor/lib/libmmcamera_isp_aec_bg_stats47.so
@@ -209,6 +208,7 @@ vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_tuning_lookup.so
 vendor/lib/libmmcamera_vpu_module.so
+vendor/lib/mmi_camera.so
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
@@ -216,6 +216,13 @@ vendor/lib/libois_lc898122.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
+vendor/lib64/libmmcamera2_frame_algorithm.so
+vendor/lib64/libmmcamera2_is.so
+vendor/lib64/libmmcamera2_q3a_core.so
+vendor/lib64/libmmcamera2_stats_algorithm.so
+vendor/lib64/libmmcamera_dbg.so
+vendor/lib64/libmmcamera_tintless_algo.so
+vendor/lib64/libmmcamera_tintless_bg_pca_algo.so
 
 # Camera actuators
 vendor/lib/libactuator_ad5816g.so
@@ -712,6 +719,7 @@ bin/imsdatadaemon
 bin/imsqmidaemon
 -vendor/app/ims/ims.apk
 -vendor/app/imssettings/imssettings.apk
+vendor/lib/lib-imscamera.so
 vendor/lib64/lib-dplmedia.so
 vendor/lib64/lib-ims-rcscmjni.so
 vendor/lib64/lib-imsSDP.so
