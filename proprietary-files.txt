@@ -51,6 +51,8 @@ etc/firmware/tfa98xx.cnt
 
 # Audio libraries
 etc/drc/drc_cfg_AZ.txt
+lib/hw/audio.primary.msm8996.so
+lib64/hw/audio.primary.msm8996.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
