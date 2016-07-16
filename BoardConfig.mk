@@ -119,10 +119,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-RED_LED_PATH            := "/sys/class/leds/nubia_led/brightness"
-BLINK_PATH              := "/sys/class/leds/nubia_led/blink_mode"
-BACKLIGHT_PATH          := "/sys/class/leds/lcd-backlight/brightness"
-CHARGING_ENABLED_PATH   := "/sys/class/power_supply/battery/charging_enabled"
+BOARD_HAL_STATIC_LIBRARIES += libhealthd.msm8996
 
 # CM Hardware
 BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw

@@ -936,10 +936,8 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
     disabled
     oneshot
 
-service poweroffcharge /sbin/poweroffcharge
+service poweroffcharge /charger
     class charger
-    seclabel u:r:poweroffcharge:s0
-    group root system
 
 service ssr_diag /system/bin/ssr_diag
     class late_start
@@ -957,11 +955,6 @@ on property:persist.usb.hvdcp.detect=true
 
 on property:persist.usb.hvdcp.detect=false
     stop hvdcp
-
-service charger_monitor /system/bin/charger_monitor
-    user root
-    group root
-    disabled
 
 service qbcharger /charger -m 1
     disabled

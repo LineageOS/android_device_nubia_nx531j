@@ -414,18 +414,13 @@ service mdtpd /system/vendor/bin/mdtpd
    group system radio drmrpc
 
 on charger
+    wait /dev/block/bootdevice/by-name/system
+    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
+
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
+
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
-    wait /dev/block/bootdevice
-    mount_all charger.fstab.qcom
-    start hvdcp_opti
-    trigger early-fs
-    trigger fs
-    trigger post-fs
-    setprop persist.adb.secure 0
-    setprop persist.sys.usb.config nubia,adb
-    start dmapp
 
 #cmx added
 import init.cmx.rc
