@@ -147,8 +147,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.rom.rc \
-    init.target.rc \
-    init.ztemt.production.rc
+    init.target.rc
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
