@@ -698,6 +698,10 @@ bin/netmgrd
 bin/qmuxd
 bin/radish
 bin/rmt_storage
+etc/modem_ota/CM/mcfg_sw.mbn
+etc/modem_ota/CT/mcfg_sw.mbn
+etc/modem_ota/CU/mcfg_sw.mbn
+etc/modem_ota/ROW/mcfg_sw.mbn
 etc/permissions/embms.xml
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
