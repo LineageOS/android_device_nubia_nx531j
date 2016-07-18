@@ -283,6 +283,9 @@ PRODUCT_PACKAGES += \
     libtinyxml2 \
     libxml2
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.extension_library=libqti-perfd-client.so
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8996 \
