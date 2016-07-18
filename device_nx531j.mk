@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product-if-exists, vendor/zte/nx531j/nx531j-vendor.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/zte/nx531j/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -76,6 +76,9 @@ PRODUCT_PACKAGES += \
     AntHalService \
     com.dsi.ant.antradio_library \
     libantradio
+
+PRODUCT_COPY_FILES += \
+    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:system/etc/permissions/com.dsi.ant.antradio_library.xml
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -138,7 +141,6 @@ PRODUCT_PACKAGES += \
     init.nubia.usb.rc \
     init.project.rc \
     init.qcom.class_core.sh \
-    init.qcom.early_boot.sh \
     init.qcom.rc \
     init.qcom.sensors.sh \
     init.qcom.sh \
@@ -160,12 +162,12 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libtinyxml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=480
-
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=480
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
@@ -235,7 +237,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    $(LOCAL_PATH)/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
+    $(LOCAL_PATH)/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+    $(LOCAL_PATH)/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
 
 # OMX
 PRODUCT_PACKAGES += \
