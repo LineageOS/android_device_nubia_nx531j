@@ -385,6 +385,11 @@ vendor/lib/libmmcamera_isp_sub_module.so
 bin/cnd
 etc/cne/SwimConfig.xml
 etc/cne/andsfCne.xml
+etc/cne/wqeclient/profile1.xml
+etc/cne/wqeclient/profile2.xml
+etc/cne/wqeclient/profile3.xml
+etc/cne/wqeclient/profile4.xml
+etc/cne/wqeclient/profile5.xml
 etc/permissions/ConnectivityExt.xml
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
@@ -615,13 +620,6 @@ bin/iop
 bin/msm_irqbalance
 lib64/libqti-iop.so
 vendor/bin/perfd
-vendor/etc/perf-profile0.conf
-vendor/etc/perf-profile1.conf
-vendor/etc/perf-profile2.conf
-vendor/etc/perf-profile3.conf
-vendor/etc/perf-profile4.conf
-vendor/etc/perf-profile5.conf
-vendor/etc/perf-profile6.conf
 vendor/lib/libqc-opt.so
 vendor/lib/libqti-iop-client.so
 vendor/lib/libqti-perfd-client.so
@@ -705,6 +703,7 @@ bin/netmgrd
 bin/qmuxd
 bin/radish
 bin/rmt_storage
+bin/tftp_server
 etc/modem_ota/CM/mcfg_sw.mbn
 etc/modem_ota/CT/mcfg_sw.mbn
 etc/modem_ota/CU/mcfg_sw.mbn
