@@ -281,6 +281,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.apm_sim_not_pwdn=1 \
+    persist.radio.sib16_support=1 \
+    persist.radio.custom_ecc=0 \
+    persist.radio.jbims=0 \
+    persist.radio.csvt.enabled=false \
+    persist.radio.mt_sms_ack=20 \
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8996 \
