@@ -5,34 +5,36 @@ set -e
 export DEVICE=nx531j
 export VENDOR=zte
 
+function pull() {
+  echo "Extracting /system/$1 ..."
+
+  DIR=$(dirname $1)
+  if [ ! -d $2/$DIR ]; then
+    mkdir -p $2/$DIR
+  fi
+
+  if [ "$SRC" = "adb" ]; then
+    adb pull /system/$1 $2/$1
+  else
+    cp $SRC/system/$1 $2/$1
+  fi
+}
+
 function extract() {
-    for FILE in `egrep -v '(^#|^$)' $1`; do
-        OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
-        FILE=`echo ${PARSING_ARRAY[0]} | sed -e 's/^[-!]//g'`
-        DEST=${PARSING_ARRAY[1]}
-        if [ -z $DEST ]; then
-            DEST=$FILE
-        fi
-	echo "Extracting /system/$FILE ..."
-        DIR=`dirname $FILE`
-        if [ ! -d $2/$DIR ]; then
-            mkdir -p $2/$DIR
-        fi
-        if [ "$SRC" = "adb" ]; then
-            # Try CM target first
-            adb pull /system/$DEST $2/$DEST
-            # if file does not exist try OEM target
-            if [ "$?" != "0" ]; then
-                adb pull /system/$FILE $2/$DEST
-            fi
-        else
-            cp $SRC/system/$FILE $2/$DEST
-            # if file dot not exist try destination
-            if [ "$?" != "0" ]; then
-                cp $SRC/system/$DEST $2/$DEST
-            fi
-        fi
-    done
+  NOT_COMMENT_OR_BLANK='(^#|^$)'
+  SIGNING_NEEDED='^[-!].+'
+  LIBRARY_VARIENT='.+\.so\:.+\.so'
+
+  for FILE in $(egrep -v $NOT_COMMENT_OR_BLANK $1); do
+    if [[ $FILE =~ $SIGNING_NEEDED ]]; then
+      pull ${FILE:1} $2
+    elif [[ $FILE =~ $LIBRARY_VARIENT ]]; then
+      pull $(echo $FILE | cut -d ':' -f 1) $2
+      pull $(echo $FILE | cut -d ':' -f 2) $2
+    else
+      pull $FILE $2
+    fi
+  done
 }
 
 if [ $# -eq 0 ]; then

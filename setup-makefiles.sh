@@ -35,6 +35,7 @@ EOF)"
 
 NOT_COMMENT_OR_BLANK='(^#|^$)'
 SIGNING_NEEDED='^[-!].+'
+LIBRARY_VARIENT='.+\.so\:.+\.so'
 
 
 echo "$HEADER" > $MK_VENDOR_BLOBS
@@ -45,7 +46,7 @@ COUNT=$(wc -l $PROPRIETARY_FILES | awk {'print $1'})
 COUNT=$(expr $COUNT - $(egrep -c $NOT_COMMENT_OR_BLANK $PROPRIETARY_FILES))
 for FILE in $(egrep -v $NOT_COMMENT_OR_BLANK $PROPRIETARY_FILES); do
   COUNT=$(expr $COUNT - 1)
-  if [[ ! "$FILE" =~ $SIGNING_NEEDED ]]; then
+  if [[ ! "$FILE" =~ $SIGNING_NEEDED ]] && [[ ! "$FILE" =~ $LIBRARY_VARIENT ]]; then
     if [ $COUNT != "0" ]; then
       echo "    $VENDOR_DIR/proprietary/$FILE:system/$FILE \\" >> $MK_VENDOR_BLOBS
     else
@@ -56,24 +57,43 @@ done
 
 
 echo "$HEADER" > $MK_VENDOR
+
 echo "" >> $MK_VENDOR
 echo "PRODUCT_PACKAGES += \\" >> $MK_VENDOR
 
-COUNT=$(wc -l $PROPRIETARY_FILES | awk {'print $1'})
-COUNT=$(expr $COUNT - $(egrep -c $NOT_COMMENT_OR_BLANK $PROPRIETARY_FILES))
-for LINE in $(egrep -v $NOT_COMMENT_OR_BLANK $PROPRIETARY_FILES); do
+COUNT=$(egrep -c $SIGNING_NEEDED $PROPRIETARY_FILES)
+for LINE in $(egrep $SIGNING_NEEDED $PROPRIETARY_FILES); do
   COUNT=$(expr $COUNT - 1)
-  if [[ "$LINE" =~ $SIGNING_NEEDED ]]; then
-    FILE=${LINE:1}
 
-    MODULE=$(basename $FILE)
-    MODULE=${MODULE%.*}
+  FILE=${LINE:1}
 
-    if [ $COUNT != "0" ]; then
-      echo "    $MODULE \\" >> $MK_VENDOR
-    else
-      echo "    $MODULE" >> $MK_VENDOR
-    fi
+  MODULE=$(basename $FILE)
+  MODULE=${MODULE%.*}
+
+  if [ $COUNT != "0" ]; then
+    echo "    $MODULE \\" >> $MK_VENDOR
+  else
+    echo "    $MODULE" >> $MK_VENDOR
+  fi
+done
+
+echo "" >> $MK_VENDOR
+echo "PRODUCT_PACKAGES += \\" >> $MK_VENDOR
+
+COUNT=$(egrep -c $LIBRARY_VARIENT $PROPRIETARY_FILES)
+for LINE in $(egrep $LIBRARY_VARIENT $PROPRIETARY_FILES); do
+  COUNT=$(expr $COUNT - 1)
+
+  FILE_32=$(echo "$LINE" | cut -d ':' -f 1)
+  FILE_64=$(echo "$LINE" | cut -d ':' -f 2)
+
+  MODULE=$(basename $FILE_32)
+  MODULE=${MODULE%.*}
+
+  if [ $COUNT != "0" ]; then
+    echo "    $MODULE \\" >> $MK_VENDOR
+  else
+    echo "    $MODULE" >> $MK_VENDOR
   fi
 done
 
@@ -94,50 +114,78 @@ EOF
 
 echo "" >> $MK_ANDROID
 
-for LINE in $(egrep -v $NOT_COMMENT_OR_BLANK $PROPRIETARY_FILES); do
-  if [[ "$LINE" =~ $SIGNING_NEEDED ]]; then
-    FILE=${LINE:1}
+for LINE in $(egrep $SIGNING_NEEDED $PROPRIETARY_FILES); do
+  FILE=${LINE:1}
 
-    MODULE=$(basename $FILE)
-    MODULE=${MODULE%.*}
+  MODULE=$(basename $FILE)
+  MODULE=${MODULE%.*}
 
-    SUFFIX=${FILE##*.}
+  SUFFIX=${FILE##*.}
 
-    echo "include \$(CLEAR_VARS)" >> $MK_ANDROID
-    echo "LOCAL_MODULE := $MODULE" >> $MK_ANDROID
-    echo "LOCAL_MODULE_OWNER := $VENDOR" >> $MK_ANDROID
-    echo "LOCAL_SRC_FILES := proprietary/$FILE" >> $MK_ANDROID
-    echo "LOCAL_MODULE_TAGS := optional" >> $MK_ANDROID
+  echo "include \$(CLEAR_VARS)" >> $MK_ANDROID
+  echo "LOCAL_MODULE := $MODULE" >> $MK_ANDROID
+  echo "LOCAL_MODULE_OWNER := $VENDOR" >> $MK_ANDROID
+  echo "LOCAL_SRC_FILES := proprietary/$FILE" >> $MK_ANDROID
+  echo "LOCAL_MODULE_TAGS := optional" >> $MK_ANDROID
 
-    case $SUFFIX in
-      jar)
-        echo "LOCAL_MODULE_SUFFIX := \$(COMMON_JAVA_PACKAGE_SUFFIX)" >> $MK_ANDROID
-        echo "LOCAL_MODULE_CLASS := JAVA_LIBRARIES" >> $MK_ANDROID
-      ;;
-      apk)
-        echo "LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)" >> $MK_ANDROID
-        echo "LOCAL_MODULE_CLASS := APPS" >> $MK_ANDROID
-        if [[ "$FILE" =~ ^priv-app\/.* ]]; then
-          echo "LOCAL_PRIVILEGED_MODULE := true" >> $MK_ANDROID
-        elif [[ "$FILE" =~ ^vendor\/app\/.* ]]; then
-          echo "LOCAL_PROPRIETARY_MODULE := true" >> $MK_ANDROID
-        fi
-      ;;
-    esac
+  case $SUFFIX in
+    jar)
+      echo "LOCAL_MODULE_SUFFIX := \$(COMMON_JAVA_PACKAGE_SUFFIX)" >> $MK_ANDROID
+      echo "LOCAL_MODULE_CLASS := JAVA_LIBRARIES" >> $MK_ANDROID
+    ;;
+    apk)
+      echo "LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)" >> $MK_ANDROID
+      echo "LOCAL_MODULE_CLASS := APPS" >> $MK_ANDROID
+      if [[ "$FILE" =~ ^priv-app\/.* ]]; then
+        echo "LOCAL_PRIVILEGED_MODULE := true" >> $MK_ANDROID
+      elif [[ "$FILE" =~ ^vendor\/app\/.* ]]; then
+        echo "LOCAL_PROPRIETARY_MODULE := true" >> $MK_ANDROID
+      fi
+    ;;
+  esac
 
-    case ${LINE:0:1} in
-      '!')
-        echo "LOCAL_CERTIFICATE := platform" >> $MK_ANDROID
-      ;;
+  case ${LINE:0:1} in
+    '!')
+      echo "LOCAL_CERTIFICATE := platform" >> $MK_ANDROID
+    ;;
 
-      '-')
-        echo "LOCAL_CERTIFICATE := shared" >> $MK_ANDROID
-      ;;
-    esac
+    '-')
+      echo "LOCAL_CERTIFICATE := shared" >> $MK_ANDROID
+    ;;
+  esac
 
-    echo "include \$(BUILD_PREBUILT)" >> $MK_ANDROID
-    echo "" >> $MK_ANDROID
+  echo "include \$(BUILD_PREBUILT)" >> $MK_ANDROID
+  echo "" >> $MK_ANDROID
+done
+
+for LINE in $(egrep $LIBRARY_VARIENT $PROPRIETARY_FILES); do
+  FILE_32=$(echo "$LINE" | cut -d ':' -f 1)
+  FILE_64=$(echo "$LINE" | cut -d ':' -f 2)
+
+  MODULE=$(basename $FILE_32)
+  MODULE=${MODULE%.*}
+
+  echo "include \$(CLEAR_VARS)" >> $MK_ANDROID
+  echo "LOCAL_MULTILIB := both" >> $MK_ANDROID
+  echo "LOCAL_MODULE := $MODULE" >> $MK_ANDROID
+  echo "LOCAL_MODULE_OWNER := $VENDOR" >> $MK_ANDROID
+  echo "LOCAL_SRC_FILES_64 := proprietary/$FILE_64" >> $MK_ANDROID
+  echo "LOCAL_SRC_FILES_32 := proprietary/$FILE_32" >> $MK_ANDROID
+  echo "LOCAL_MODULE_TAGS := optional" >> $MK_ANDROID
+  echo "LOCAL_MODULE_SUFFIX := .so" >> $MK_ANDROID
+  echo "LOCAL_MODULE_CLASS := SHARED_LIBRARIES" >> $MK_ANDROID
+
+  if [[ "$FILE_32" =~ ^vendor\/.* ]]; then
+    echo "LOCAL_MODULE_PATH_64 := \$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)" >> $MK_ANDROID
+    echo "LOCAL_MODULE_PATH_32 := \$(2ND_TARGET_OUT_VENDOR_SHARED_LIBRARIES)" >> $MK_ANDROID
+    echo "LOCAL_PROPRIETARY_MODULE := true" >> $MK_ANDROID
+  else
+    echo "LOCAL_MODULE_PATH_64 := \$(TARGET_OUT_SHARED_LIBRARIES)" >> $MK_ANDROID
+    echo "LOCAL_MODULE_PATH_32 := \$(2ND_TARGET_OUT_SHARED_LIBRARIES)" >> $MK_ANDROID
   fi
+
+  echo "include \$(BUILD_PREBUILT)" >> $MK_ANDROID
+  echo "" >> $MK_ANDROID
 done
 
 (cat << EOF) >> $MK_ANDROID
