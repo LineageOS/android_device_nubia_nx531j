@@ -102,15 +102,11 @@ bin/mm-qcamera-app
 bin/mm-qcamera-daemon
 framework/org.codeaurora.camera.jar
 lib/hw/camera.msm8996.so
-lib/libarcsoft_beautyshot.so
-lib/libarcsoft_beautyshot_image_algorithm.so
-lib/libarcsoft_beautyshot_video_algorithm.so
 lib/libmm-qcamera.so
 lib/libmmcamera_nubiacustpro.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
 lib/libmorpho_panorama_gp.so
-lib/libmpbase.so
 lib/libnubia_effect.so
 lib/libqomx_core.so
 vendor/lib/libSonyIMX298PdafLibrary.so
@@ -385,11 +381,6 @@ vendor/lib/libmmcamera_isp_sub_module.so
 bin/cnd
 etc/cne/SwimConfig.xml
 etc/cne/andsfCne.xml
-etc/cne/wqeclient/profile1.xml
-etc/cne/wqeclient/profile2.xml
-etc/cne/wqeclient/profile3.xml
-etc/cne/wqeclient/profile4.xml
-etc/cne/wqeclient/profile5.xml
 etc/permissions/ConnectivityExt.xml
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml

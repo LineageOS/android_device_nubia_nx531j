@@ -663,6 +663,20 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
+service wigig_supplicant /system/bin/wpa_supplicant \
+    -iwigig0 -Dnl80211 -c/data/misc/wifi/wigig_supplicant.conf \
+    -m/data/misc/wifi/wigig_p2p_supplicant.conf \
+    -O/data/misc/wifi/wigig_sockets -dd \
+    -e/data/misc/wifi/wigig_entropy.bin -g@android:wpa_wigig0
+    #   we will start as root and wpa_supplicant will switch to user wifi
+    #   after setting up the capabilities required for WEXT
+    #   user wifi
+    #   group wifi inet keystore
+    class main
+    socket wpa_wigig0 dgram 660 wifi wifi
+    disabled
+    oneshot
+
 # FST Manager can be started by property_set("ctl.start", "fstman:<hostap ctrl iface>");
 service fstman /system/bin/fstman -B -ddd -c /data/misc/wifi/fstman.ini
     user wifi
@@ -692,6 +706,11 @@ service dhcpcd_p2p /system/bin/dhcpcd -ABKLG
     disabled
     oneshot
 
+service dhcpcd_wigig0 /system/bin/dhcpcd -ABKLG
+    class late_start
+    disabled
+    oneshot
+
 service iprenew_wlan0 /system/bin/dhcpcd -n
     class late_start
     disabled
@@ -703,6 +722,11 @@ service iprenew_bond0 /system/bin/dhcpcd -n
     oneshot
 
 service iprenew_p2p /system/bin/dhcpcd -n
+    class late_start
+    disabled
+    oneshot
+
+service iprenew_wigig0 /system/bin/dhcpcd -n
     class late_start
     disabled
     oneshot
@@ -730,22 +754,22 @@ on property:wifi.fccutild.load.qcacld=true
     insmod /system/lib/modules/qca_cld/qca_cld_wlan.ko con_mode=5
 
 on property:wifi.ant.1x1.set=1
-	setprop wifi.ant.set.ok 0
-	exec /system/bin/rm -rf /persist/WCNSS_qcom_cfg.ini
-#	symlink /data/misc/wifi/WCNSS_qcom_cfg_1.ini /persist/WCNSS_qcom_cfg.ini
-	symlink /system/etc/wifi/WCNSS_qcom_cfg_1.ini /persist/WCNSS_qcom_cfg.ini
-#	exec /system/bin/cp -f /system/etc/wifi/WCNSS_qcom_cfg_1.ini /persist/WCNSS_qcom_cfg.ini
+    setprop wifi.ant.set.ok 0
+    exec /system/bin/rm -rf /persist/WCNSS_qcom_cfg.ini
+#   symlink /data/misc/wifi/WCNSS_qcom_cfg_1.ini /persist/WCNSS_qcom_cfg.ini
+    symlink /system/etc/wifi/WCNSS_qcom_cfg_1.ini /persist/WCNSS_qcom_cfg.ini
+#   exec /system/bin/cp -f /system/etc/wifi/WCNSS_qcom_cfg_1.ini /persist/WCNSS_qcom_cfg.ini
     setprop wifi.ant.2x2.set 0
-	setprop wifi.ant.set.ok 1
+    setprop wifi.ant.set.ok 1
 
 on property:wifi.ant.2x2.set=1
-	setprop wifi.ant.set.ok 0
-	exec /system/bin/rm -rf /persist/WCNSS_qcom_cfg.ini
-#	symlink /data/misc/wifi/WCNSS_qcom_cfg_2.ini /persist/WCNSS_qcom_cfg.ini
-	symlink /system/etc/wifi/WCNSS_qcom_cfg_2.ini /persist/WCNSS_qcom_cfg.ini
-#    exec /system/bin/cp -f /system/etc/wifi/WCNSS_qcom_cfg_2.ini /persist/WCNSS_qcom_cfg.ini
-	setprop wifi.ant.1x1.set 0
-	setprop wifi.ant.set.ok 1
+    setprop wifi.ant.set.ok 0
+    exec /system/bin/rm -rf /persist/WCNSS_qcom_cfg.ini
+#   symlink /data/misc/wifi/WCNSS_qcom_cfg_2.ini /persist/WCNSS_qcom_cfg.ini
+    symlink /system/etc/wifi/WCNSS_qcom_cfg_2.ini /persist/WCNSS_qcom_cfg.ini
+#   exec /system/bin/cp -f /system/etc/wifi/WCNSS_qcom_cfg_2.ini /persist/WCNSS_qcom_cfg.ini
+    setprop wifi.ant.1x1.set 0
+    setprop wifi.ant.set.ok 1
 
 service cnss-daemon /system/bin/cnss-daemon -n -l
     class late_start
