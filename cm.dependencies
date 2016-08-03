@@ -16,10 +16,6 @@
     "target_path": "vendor/nxp-nfc/opensource/Nfc"
   },
   {
-    "repository": "android_kernel_oneplus_msm8996",
-    "target_path": "kernel/oneplus/msm8996"
-  },
-  {
     "repository": "android_external_stlport",
     "target_path": "external/stlport"
   }
