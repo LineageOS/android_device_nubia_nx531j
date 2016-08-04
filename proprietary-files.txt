@@ -763,11 +763,6 @@ vendor/lib64/libsensor1.so
 vendor/lib64/libsensor_reg.so
 vendor/lib64/sensors.ssc.so
 
-# Thermal
-vendor/bin/thermal-engine
-vendor/lib/libthermalclient.so:vendor/lib64/libthermalclient.so
-vendor/lib64/libthermalioctl.so
-
 # Time services
 !app/TimeService/TimeService.apk
 bin/time_daemon

@@ -298,7 +298,9 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    thermal-engine.conf
+    thermal-engine \
+    libthermalclient \
+    libthermalioctl
 
 # Touch panel
 PRODUCT_PACKAGES += \

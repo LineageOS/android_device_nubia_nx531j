@@ -1,9 +1,33 @@
 LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := thermal-engine.conf
-LOCAL_MODULE_TAGS  := optional eng
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := thermal-engine.conf
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
+LOCAL_MODULE          := thermal-engine
+LOCAL_MODULE_TAGS     := optional
+LOCAL_MODULE_CLASS    := EXECUTABLES
+LOCAL_SRC_FILES       := bin/thermal-engine
+LOCAL_MODULE_PATH     := $(TARGET_OUT_VENDOR_EXECUTABLES)
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE          := libthermalioctl
+LOCAL_MODULE_TAGS     := optional
+LOCAL_MODULE_CLASS    := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX   := .so
+LOCAL_SRC_FILES       := lib64/libthermalioctl.so
+LOCAL_MODULE_PATH     := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MULTILIB        := both
+LOCAL_MODULE          := libthermalclient
+LOCAL_MODULE_TAGS     := optional
+LOCAL_MODULE_CLASS    := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX   := .so
+LOCAL_SRC_FILES_64    := lib64/libthermalclient.so
+LOCAL_SRC_FILES_32    := lib/libthermalclient.so
+LOCAL_MODULE_PATH_64  := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
+LOCAL_MODULE_PATH_32  := $(2ND_TARGET_OUT_VENDOR_SHARED_LIBRARIES)
+LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_PREBUILT)
