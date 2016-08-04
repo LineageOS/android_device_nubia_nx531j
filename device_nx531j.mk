@@ -169,6 +169,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=480
 
+# DPM
+PRODUCT_PACKAGES += \
+    dpmserviceapp
+
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
     fingerprintd
