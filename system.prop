@@ -21,7 +21,7 @@ persist.radio.flex_map_inactive=true
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
 # Start in global mode
-ro.telephony.default_network=1
+ro.telephony.default_network=22,22
 ro.telephony.default_cdma_sub=0
 debug.sf.hw=1
 debug.egl.hw=1
