@@ -125,6 +125,9 @@ PRODUCT_PACKAGES += \
     imx298_ois_chromatix.xml \
     msm8996_camera.xml
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.HAL3.enabled=1
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
