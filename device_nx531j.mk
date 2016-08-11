@@ -232,6 +232,7 @@ PRODUCT_PACKAGES += \
 
 # IR Control
 PRODUCT_PACKAGES += \
+    libserial_port \
     nubia_IRControl3
 
 # IRQ Balancer
