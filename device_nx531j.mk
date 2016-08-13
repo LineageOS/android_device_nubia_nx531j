@@ -337,10 +337,6 @@ PRODUCT_PACKAGES += \
     libthermalclient \
     libthermalioctl
 
-# Touch panel
-PRODUCT_PACKAGES += \
-    tp_node.sh
-
 # WiFi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \

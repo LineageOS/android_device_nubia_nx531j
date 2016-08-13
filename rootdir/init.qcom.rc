@@ -56,6 +56,8 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
 
+    exec -- /init.qcom.early_boot.sh
+
 on boot
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
@@ -967,6 +969,7 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
 
 service poweroffcharge /charger
     class charger
+    group root system
 
 service ssr_diag /system/bin/ssr_diag
     class late_start
@@ -1084,9 +1087,3 @@ service seemp_healthd /system/vendor/bin/seemp_healthd
 
 on charger
     setprop persist.sys.usb.config charging
-
-service tp_node /system/bin/sh /system/bin/tp_node.sh
-    class main
-    user root
-    group root
-    oneshot
