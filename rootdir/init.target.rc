@@ -422,5 +422,7 @@ on charger
 
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
+    start hvdcp_opti
+
 #cmx added
 import init.cmx.rc
