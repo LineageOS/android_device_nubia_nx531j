@@ -144,6 +144,7 @@ PRODUCT_PACKAGES += \
     init.nubia.usb.rc \
     init.project.rc \
     init.qcom.class_core.sh \
+    init.qcom.early_boot.sh \
     init.qcom.rc \
     init.qcom.sensors.sh \
     init.qcom.sh \
@@ -187,9 +188,6 @@ PRODUCT_PACKAGES += \
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=480
 
 # DPM
 PRODUCT_PACKAGES += \
