@@ -79,6 +79,7 @@ ro.nfc.port=I2C
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+ro.sys.fw.bg_apps_limit=60
 
 # Power logs
 persist.power.logs.switch=0
