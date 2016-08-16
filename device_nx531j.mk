@@ -125,9 +125,6 @@ PRODUCT_PACKAGES += \
     imx298_ois_chromatix.xml \
     msm8996_camera.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.HAL3.enabled=1
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -312,14 +309,6 @@ PRODUCT_PACKAGES += \
     libtinyxml2 \
     libxml2
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.sib16_support=1 \
-    ro.telephony.ril.config=simactivation
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8996 \
@@ -359,7 +348,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/fstman.ini:system/etc/wifi/fstman.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini
-
-# Additional overrides
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.timezone=Asia/Shanghai
