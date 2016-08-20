@@ -325,6 +325,13 @@ PRODUCT_PACKAGES += \
     libthermalclient \
     libthermalioctl
 
+# Wechat Fingerprint Payment
+PRODUCT_PACKAGES += \
+    soter
+
+PRODUCT_BOOT_JARS += \
+    soter
+
 # WiFi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
