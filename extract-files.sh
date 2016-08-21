@@ -22,11 +22,11 @@ function pull() {
 
 function extract() {
   NOT_COMMENT_OR_BLANK='(^#|^$)'
-  SIGNING_NEEDED='^[-!].+'
+  MODULE_FILE='^[-!~].+'
   LIBRARY_VARIENT='.+\.so\:.+\.so'
 
   for FILE in $(egrep -v $NOT_COMMENT_OR_BLANK $1); do
-    if [[ $FILE =~ $SIGNING_NEEDED ]]; then
+    if [[ $FILE =~ $MODULE_FILE ]]; then
       pull ${FILE:1} $2
     elif [[ $FILE =~ $LIBRARY_VARIENT ]]; then
       pull $(echo $FILE | cut -d ':' -f 1) $2

@@ -1,6 +1,7 @@
 #
 # Proprientary file list
 #
+# ~: boot jar
 # -: sign apk with shared key
 # !: sign apk with platform key
 #
@@ -417,9 +418,9 @@ etc/dpm/dpm.conf
 etc/dpm/nsrm/NsrmConfiguration.xml
 etc/permissions/com.qti.dpmframework.xml
 etc/permissions/dpmapi.xml
-framework/com.qti.dpmframework.jar
-framework/dpmapi.jar
-framework/tcmclient.jar
+~framework/com.qti.dpmframework.jar
+~framework/dpmapi.jar
+~framework/tcmclient.jar
 vendor/lib/libdpmctmgr.so
 vendor/lib/libdpmfdmgr.so
 vendor/lib/libdpmframework.so
@@ -462,7 +463,7 @@ bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/com.qualcomm.location.vzw_library.xml
-framework/com.qti.location.sdk.jar
+~framework/com.qti.location.sdk.jar
 framework/com.qualcomm.location.vzw_library.jar
 lib/libloc_api_v02.so:lib64/libloc_api_v02.so
 !priv-app/com.qualcomm.location/com.qualcomm.location.apk
@@ -701,7 +702,7 @@ etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 framework/embmslibrary.jar
 framework/qcnvitems.jar
-framework/qcrilhook.jar
+~framework/qcrilhook.jar
 framework/QtiTelephonyServicelibrary.jar
 !priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti

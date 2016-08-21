@@ -34,6 +34,7 @@ HEADER="$(cat << EOF
 EOF)"
 
 NOT_COMMENT_OR_BLANK='(^#|^$)'
+BOOT_JAR='^~.+\.jar$'
 SIGNING_NEEDED='^[-!].+'
 LIBRARY_VARIENT='.+\.so\:.+\.so'
 
@@ -46,7 +47,9 @@ COUNT=$(wc -l $PROPRIETARY_FILES | awk {'print $1'})
 COUNT=$(expr $COUNT - $(egrep -c $NOT_COMMENT_OR_BLANK $PROPRIETARY_FILES))
 for FILE in $(egrep -v $NOT_COMMENT_OR_BLANK $PROPRIETARY_FILES); do
   COUNT=$(expr $COUNT - 1)
-  if [[ ! "$FILE" =~ $SIGNING_NEEDED ]] && [[ ! "$FILE" =~ $LIBRARY_VARIENT ]]; then
+  if [[ ! "$FILE" =~ $BOOT_JAR ]] \
+  && [[ ! "$FILE" =~ $SIGNING_NEEDED ]] \
+  && [[ ! "$FILE" =~ $LIBRARY_VARIENT ]]; then
     if [ $COUNT != "0" ]; then
       echo "    $VENDOR_DIR/proprietary/$FILE:system/$FILE \\" >> $MK_VENDOR_BLOBS
     else
@@ -63,6 +66,44 @@ echo "PRODUCT_PACKAGES += \\" >> $MK_VENDOR
 
 COUNT=$(egrep -c $SIGNING_NEEDED $PROPRIETARY_FILES)
 for LINE in $(egrep $SIGNING_NEEDED $PROPRIETARY_FILES); do
+  COUNT=$(expr $COUNT - 1)
+
+  FILE=${LINE:1}
+
+  MODULE=$(basename $FILE)
+  MODULE=${MODULE%.*}
+
+  if [ $COUNT != "0" ]; then
+    echo "    $MODULE \\" >> $MK_VENDOR
+  else
+    echo "    $MODULE" >> $MK_VENDOR
+  fi
+done
+
+echo "" >> $MK_VENDOR
+echo "PRODUCT_PACKAGES += \\" >> $MK_VENDOR
+
+COUNT=$(egrep -c $BOOT_JAR $PROPRIETARY_FILES)
+for LINE in $(egrep $BOOT_JAR $PROPRIETARY_FILES); do
+  COUNT=$(expr $COUNT - 1)
+
+  FILE=${LINE:1}
+
+  MODULE=$(basename $FILE)
+  MODULE=${MODULE%.*}
+
+  if [ $COUNT != "0" ]; then
+    echo "    $MODULE \\" >> $MK_VENDOR
+  else
+    echo "    $MODULE" >> $MK_VENDOR
+  fi
+done
+
+echo "" >> $MK_VENDOR
+echo "PRODUCT_BOOT_JARS += \\" >> $MK_VENDOR
+
+COUNT=$(egrep -c $BOOT_JAR $PROPRIETARY_FILES)
+for LINE in $(egrep $BOOT_JAR $PROPRIETARY_FILES); do
   COUNT=$(expr $COUNT - 1)
 
   FILE=${LINE:1}
@@ -127,22 +168,14 @@ for LINE in $(egrep $SIGNING_NEEDED $PROPRIETARY_FILES); do
   echo "LOCAL_MODULE_OWNER := $VENDOR" >> $MK_ANDROID
   echo "LOCAL_SRC_FILES := proprietary/$FILE" >> $MK_ANDROID
   echo "LOCAL_MODULE_TAGS := optional" >> $MK_ANDROID
+  echo "LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)" >> $MK_ANDROID
+  echo "LOCAL_MODULE_CLASS := APPS" >> $MK_ANDROID
 
-  case $SUFFIX in
-    jar)
-      echo "LOCAL_MODULE_SUFFIX := \$(COMMON_JAVA_PACKAGE_SUFFIX)" >> $MK_ANDROID
-      echo "LOCAL_MODULE_CLASS := JAVA_LIBRARIES" >> $MK_ANDROID
-    ;;
-    apk)
-      echo "LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)" >> $MK_ANDROID
-      echo "LOCAL_MODULE_CLASS := APPS" >> $MK_ANDROID
-      if [[ "$FILE" =~ ^priv-app\/.* ]]; then
-        echo "LOCAL_PRIVILEGED_MODULE := true" >> $MK_ANDROID
-      elif [[ "$FILE" =~ ^vendor\/app\/.* ]]; then
-        echo "LOCAL_PROPRIETARY_MODULE := true" >> $MK_ANDROID
-      fi
-    ;;
-  esac
+  if [[ "$FILE" =~ ^priv-app\/.* ]]; then
+    echo "LOCAL_PRIVILEGED_MODULE := true" >> $MK_ANDROID
+  elif [[ "$FILE" =~ ^vendor\/app\/.* ]]; then
+    echo "LOCAL_PROPRIETARY_MODULE := true" >> $MK_ANDROID
+  fi
 
   case ${LINE:0:1} in
     '!')
@@ -154,6 +187,23 @@ for LINE in $(egrep $SIGNING_NEEDED $PROPRIETARY_FILES); do
     ;;
   esac
 
+  echo "include \$(BUILD_PREBUILT)" >> $MK_ANDROID
+  echo "" >> $MK_ANDROID
+done
+
+for LINE in $(egrep $BOOT_JAR $PROPRIETARY_FILES); do
+  FILE=${LINE:1}
+
+  MODULE=$(basename $FILE)
+  MODULE=${MODULE%.*}
+
+  echo "include \$(CLEAR_VARS)" >> $MK_ANDROID
+  echo "LOCAL_MODULE := $MODULE" >> $MK_ANDROID
+  echo "LOCAL_MODULE_OWNER := $VENDOR" >> $MK_ANDROID
+  echo "LOCAL_SRC_FILES := proprietary/$FILE" >> $MK_ANDROID
+  echo "LOCAL_MODULE_TAGS := optional" >> $MK_ANDROID
+  echo "LOCAL_MODULE_SUFFIX := \$(COMMON_JAVA_PACKAGE_SUFFIX)" >> $MK_ANDROID
+  echo "LOCAL_MODULE_CLASS := JAVA_LIBRARIES" >> $MK_ANDROID
   echo "include \$(BUILD_PREBUILT)" >> $MK_ANDROID
   echo "" >> $MK_ANDROID
 done
