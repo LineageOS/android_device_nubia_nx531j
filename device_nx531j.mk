@@ -118,7 +118,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    NeoVision6
 
 PRODUCT_PACKAGES += \
     imx179_chromatix.xml \
