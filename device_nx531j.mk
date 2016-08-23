@@ -120,6 +120,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     NeoVision6
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/camera/lib64/libavcodec.so:system/app/NeoVision6/lib/arm64/camera/lib64/libavcodec.so \
+    $(LOCAL_PATH)/camera/lib64/libavfilter.so:system/app/NeoVision6/lib/arm64/camera/lib64/libavfilter.so \
+    $(LOCAL_PATH)/camera/lib64/libavformat.so:system/app/NeoVision6/lib/arm64/camera/lib64/libavformat.so \
+    $(LOCAL_PATH)/camera/lib64/libavutil.so:system/app/NeoVision6/lib/arm64/camera/lib64/libavutil.so \
+    $(LOCAL_PATH)/camera/lib64/libffmpeg.so:system/app/NeoVision6/lib/arm64/camera/lib64/libffmpeg.so \
+    $(LOCAL_PATH)/camera/lib64/libnubiaffmpeg.so:system/app/NeoVision6/lib/arm64/camera/lib64/libnubiaffmpeg.so
+
 PRODUCT_PACKAGES += \
     imx179_chromatix.xml \
     imx298_ois_chromatix.xml \
