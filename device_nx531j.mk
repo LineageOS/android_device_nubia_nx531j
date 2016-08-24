@@ -120,6 +120,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     NeoVision6
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/camera/libffmpeg.so:system/app/NeoVision6/lib/arm64/libffmpeg.so \
+    $(LOCAL_PATH)/camera/libnubiaffmpeg.so:system/app/NeoVision6/lib/arm64/libnubiaffmpeg.so
+
 PRODUCT_PACKAGES += \
     imx179_chromatix.xml \
     imx298_ois_chromatix.xml \
