@@ -1,21 +1,3 @@
-#
-# Proprientary file list
-#
-# ~: boot jar
-# -: sign apk with shared key
-# !: sign apk with platform key
-#
-# Evaluate your apk with this command to known whether it uses
-# android.uid.system, for which a platform key is needed
-#
-#   aapt d xmltree <your_apk> AndroidManifest.xml | grep sharedUserId
-#
-# After you've prepared your file list. Run this command to extract all files
-# from an unzipped stock ROM
-#
-#   ./extract-files.sh <path_to_the_unzipped_rom_dir>
-#
-
 # ADSP
 bin/adsprpcd
 vendor/lib/libadsprpc.so
@@ -411,7 +393,7 @@ framework/cneapiclient.jar
 framework/com.quicinc.cne.jar
 framework/com.quicinc.wbc.jar
 framework/com.quicinc.wbcservice.jar
-!priv-app/CNEService/CNEService.apk
+-priv-app/CNEService/CNEService.apk
 vendor/lib/libNimsWrap.so
 vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
@@ -435,9 +417,9 @@ etc/dpm/dpm.conf
 etc/dpm/nsrm/NsrmConfiguration.xml
 etc/permissions/com.qti.dpmframework.xml
 etc/permissions/dpmapi.xml
-~framework/com.qti.dpmframework.jar
-~framework/dpmapi.jar
-~framework/tcmclient.jar
+-framework/com.qti.dpmframework.jar
+-framework/dpmapi.jar
+-framework/tcmclient.jar
 vendor/lib/libdpmctmgr.so
 vendor/lib/libdpmfdmgr.so
 vendor/lib/libdpmframework.so
@@ -480,10 +462,11 @@ bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/com.qualcomm.location.vzw_library.xml
-~framework/com.qti.location.sdk.jar
+framework/com.qti.location.sdk.jar
 framework/com.qualcomm.location.vzw_library.jar
-lib/libloc_api_v02.so:lib64/libloc_api_v02.so
-!priv-app/com.qualcomm.location/com.qualcomm.location.apk
+-lib/libloc_api_v02.so
+-lib64/libloc_api_v02.so
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 vendor/bin/slim_daemon
 vendor/lib/hw/flp.default.so
 vendor/lib/libalarmservice_jni.so
@@ -615,7 +598,7 @@ vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
 
 # Network
-!priv-app/QtiTetherService/QtiTetherService.apk
+-priv-app/QtiTetherService/QtiTetherService.apk
 vendor/lib/libconnctrl.so
 vendor/lib64/libconnctrl.so
 vendor/lib64/libQtiTether.so
@@ -698,11 +681,11 @@ vendor/lib64/libquipc_os_api.so
 vendor/lib64/libsmemlog.so
 
 # Radio
-!app/datastatusnotification/datastatusnotification.apk
-!app/embms/embms.apk
-!app/fastdormancy/fastdormancy.apk
-!app/QtiTelephonyService/QtiTelephonyService.apk
-!app/shutdownlistener/shutdownlistener.apk
+-app/datastatusnotification/datastatusnotification.apk
+-app/embms/embms.apk
+-app/fastdormancy/fastdormancy.apk
+-app/QtiTelephonyService/QtiTelephonyService.apk
+-app/shutdownlistener/shutdownlistener.apk
 bin/ipacm-diag
 bin/netmgrd
 bin/qmuxd
@@ -718,10 +701,10 @@ etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 framework/embmslibrary.jar
-framework/qcnvitems.jar
-~framework/qcrilhook.jar
+-framework/qcnvitems.jar
+-framework/qcrilhook.jar
 framework/QtiTelephonyServicelibrary.jar
-!priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
@@ -739,8 +722,8 @@ bin/ims_rtp_daemon
 bin/imscmservice
 bin/imsdatadaemon
 bin/imsqmidaemon
-!vendor/app/ims/ims.apk
-!vendor/app/imssettings/imssettings.apk
+-vendor/app/ims/ims.apk
+-vendor/app/imssettings/imssettings.apk
 vendor/lib/lib-imscamera.so
 vendor/lib64/lib-dplmedia.so
 vendor/lib64/lib-ims-rcscmjni.so
@@ -779,9 +762,10 @@ vendor/lib64/libsensor_reg.so
 vendor/lib64/sensors.ssc.so
 
 # Time services
-!app/TimeService/TimeService.apk
+-app/TimeService/TimeService.apk
 bin/time_daemon
-vendor/lib/libtime_genoff.so:vendor/lib64/libtime_genoff.so
+-vendor/lib/libtime_genoff.so
+-vendor/lib64/libtime_genoff.so
 vendor/lib/libTimeService.so
 vendor/lib64/libTimeService.so
 

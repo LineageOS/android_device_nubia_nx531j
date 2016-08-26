@@ -1,41 +1,37 @@
 #!/bin/bash
+#
+# Copyright (C) 2016 The CyanogenMod Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 set -e
 
-export DEVICE=nx531j
-export VENDOR=zte
+DEVICE=nx531j
+VENDOR=zte
 
-function pull() {
-  echo "Extracting /system/$1 ..."
+# Load extractutils and do some sanity checks
+MY_DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-  DIR=$(dirname $1)
-  if [ ! -d $2/$DIR ]; then
-    mkdir -p $2/$DIR
-  fi
+CM_ROOT="$MY_DIR"/../../..
 
-  if [ "$SRC" = "adb" ]; then
-    adb pull /system/$1 $2/$1
-  else
-    cp $SRC/system/$1 $2/$1
-  fi
-}
-
-function extract() {
-  NOT_COMMENT_OR_BLANK='(^#|^$)'
-  MODULE_FILE='^[-!~].+'
-  LIBRARY_VARIENT='.+\.so\:.+\.so'
-
-  for FILE in $(egrep -v $NOT_COMMENT_OR_BLANK $1); do
-    if [[ $FILE =~ $MODULE_FILE ]]; then
-      pull ${FILE:1} $2
-    elif [[ $FILE =~ $LIBRARY_VARIENT ]]; then
-      pull $(echo $FILE | cut -d ':' -f 1) $2
-      pull $(echo $FILE | cut -d ':' -f 2) $2
-    else
-      pull $FILE $2
-    fi
-  done
-}
+HELPER="$CM_ROOT"/vendor/cm/build/tools/extract_utils.sh
+if [ ! -f "$HELPER" ]; then
+    echo "Unable to find helper script at $HELPER"
+    exit 1
+fi
+. "$HELPER"
 
 if [ $# -eq 0 ]; then
   SRC=adb
@@ -53,9 +49,9 @@ else
   fi
 fi
 
-BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
-rm -rf $BASE/*
+# Initialize the helper
+setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
-extract ../../$VENDOR/$DEVICE/proprietary-files.txt $BASE
+extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
-./setup-makefiles.sh
+"$MY_DIR"/setup-makefiles.sh
