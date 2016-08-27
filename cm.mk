@@ -18,7 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/verity.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/zte/nx531j/device_nx531j.mk)
+$(call inherit-product, device/zte/nx531j/device.mk)
 
 # Enhanced NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
@@ -26,7 +26,7 @@ $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-## Device identifier. This must come after all inclusions
+# Device identifier. This must come after all inclusions
 PRODUCT_NAME := cm_nx531j
 PRODUCT_DEVICE := nx531j
 PRODUCT_MANUFACTURER := nubia
