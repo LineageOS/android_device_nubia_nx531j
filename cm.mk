@@ -26,14 +26,20 @@ $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-# Device identifier. This must come after all inclusions
 PRODUCT_NAME := cm_nx531j
 PRODUCT_DEVICE := nx531j
 PRODUCT_MANUFACTURER := nubia
 PRODUCT_BRAND := nubia
 PRODUCT_MODEL := NX531J
 
+PRODUCT_GMS_CLIENTID_BASE := android-zte
+
+TARGET_VENDOR_PRODUCT_NAME := NX531J
+TARGET_VENDOR_DEVICE_NAME := NX531J
+
 PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=NX531J PRODUCT_NAME=NX531J
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=nubia/NX531J/NX531J:6.0.1/MMB29M/nubia07271842:user/release-keys
+
+TARGET_VENDOR := nubia
