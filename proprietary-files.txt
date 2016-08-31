@@ -504,12 +504,6 @@ vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_ulp_adaptor.so
 
 # Graphics
-lib/libsdmcore.so
-lib/libsdmutils.so
-lib/hw/hwcomposer.msm8996.so
-lib64/libsdmcore.so
-lib64/libsdmutils.so
-lib64/hw/hwcomposer.msm8996.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
