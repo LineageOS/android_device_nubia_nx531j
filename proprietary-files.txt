@@ -774,7 +774,6 @@ vendor/lib/mediadrm/libwvdrmengine.so
 bin/cnss-daemon
 bin/cnss_diag
 bin/fstman
-lib/modules/qca_cld/qca_cld_wlan.ko
 
 # Pressure
 etc/firmware/pressure-dev-ndt.bin
