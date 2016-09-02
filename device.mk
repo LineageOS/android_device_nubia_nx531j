@@ -193,6 +193,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     dpmserviceapp
 
+PRODUCT_BOOT_JARS += \
+    dpmapi \
+    tcmclient
+
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
     fingerprintd
@@ -311,6 +315,10 @@ PRODUCT_PACKAGES += \
     libtime_genoff \
     libtinyxml2 \
     libxml2
+
+PRODUCT_BOOT_JARS += \
+    qcnvitems \
+    qcrilhook
 
 # Sensors
 PRODUCT_PACKAGES += \
