@@ -340,13 +340,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstlport
 
-# Wechat Fingerprint Payment
-PRODUCT_PACKAGES += \
-    soter
-
-PRODUCT_BOOT_JARS += \
-    soter
-
 # WiFi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
