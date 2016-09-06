@@ -190,9 +190,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
 
 # DPM
-PRODUCT_PACKAGES += \
-    dpmserviceapp
-
 PRODUCT_BOOT_JARS += \
     com.qti.dpmframework \
     dpmapi \
