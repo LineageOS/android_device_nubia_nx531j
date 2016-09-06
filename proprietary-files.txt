@@ -462,7 +462,7 @@ bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/com.qualcomm.location.vzw_library.xml
-framework/com.qti.location.sdk.jar
+-framework/com.qti.location.sdk.jar
 framework/com.qualcomm.location.vzw_library.jar
 -lib/libloc_api_v02.so
 -lib64/libloc_api_v02.so
