@@ -194,6 +194,7 @@ PRODUCT_PACKAGES += \
     dpmserviceapp
 
 PRODUCT_BOOT_JARS += \
+    com.qti.dpmframework \
     dpmapi \
     tcmclient
 
