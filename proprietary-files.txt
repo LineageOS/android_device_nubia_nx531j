@@ -77,7 +77,6 @@ vendor/lib64/libbtnv.so
 # Camera
 bin/mm-qcamera-app
 bin/mm-qcamera-daemon
-framework/org.codeaurora.camera.jar
 lib/hw/camera.msm8996.so
 lib/libFNVfbEngineHAL.so
 lib/libImageAlogrithm.so
