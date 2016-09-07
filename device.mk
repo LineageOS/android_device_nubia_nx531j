@@ -233,11 +233,6 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
-# IR Control
-PRODUCT_PACKAGES += \
-    libserial_port \
-    nubia_IRControl3
-
 # IRQ Balancer
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
