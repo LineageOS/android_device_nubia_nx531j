@@ -69,6 +69,6 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
 
-include device/zte/nx531j/tftp.mk
+include device/nubia/nx531j/tftp.mk
 
 endif

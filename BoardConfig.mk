@@ -25,7 +25,7 @@ USE_CLANG_PLATFORM_BUILD := true
 
 TARGET_OTA_ASSERT_DEVICE := nx531j,NX531J
 
-DEVICE_PATH := device/zte/nx531j
+DEVICE_PATH := device/nubia/nx531j
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
@@ -66,7 +66,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/zte/msm8996
+TARGET_KERNEL_SOURCE := kernel/nubia/msm8996
 TARGET_KERNEL_CONFIG := msm8996-NX531J-perf_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_APPEND_DTB := true
@@ -229,4 +229,4 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # inherit from the proprietary version
--include vendor/zte/nx531j/BoardConfigVendor.mk
+-include vendor/nubia/nx531j/BoardConfigVendor.mk

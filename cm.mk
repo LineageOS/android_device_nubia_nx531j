@@ -18,7 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/verity.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/zte/nx531j/device.mk)
+$(call inherit-product, device/nubia/nx531j/device.mk)
 
 # Enhanced NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
@@ -32,7 +32,7 @@ PRODUCT_MANUFACTURER := nubia
 PRODUCT_BRAND := nubia
 PRODUCT_MODEL := NX531J
 
-PRODUCT_GMS_CLIENTID_BASE := android-zte
+PRODUCT_GMS_CLIENTID_BASE := android-nubia
 
 TARGET_VENDOR_PRODUCT_NAME := NX531J
 TARGET_VENDOR_DEVICE_NAME := NX531J

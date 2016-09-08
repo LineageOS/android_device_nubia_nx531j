@@ -15,7 +15,7 @@
 #
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/zte/nx531j/nx531j-vendor.mk)
+$(call inherit-product-if-exists, vendor/nubia/nx531j/nx531j-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
