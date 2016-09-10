@@ -127,10 +127,6 @@ PRODUCT_PACKAGES += \
     imx298_ois_chromatix.xml \
     msm8996_camera.xml
 
-# Charger
-PRODUCT_PACKAGES += \
-    cm_charger_res_images
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
