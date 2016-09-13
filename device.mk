@@ -315,7 +315,8 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libtime_genoff \
     libtinyxml2 \
-    libxml2
+    libxml2 \
+    libprotobuf-cpp-full
 
 PRODUCT_BOOT_JARS += \
     qcnvitems \
