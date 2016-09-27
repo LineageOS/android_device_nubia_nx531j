@@ -29,32 +29,6 @@
 
 # ZTEMT: Moved from init.qcom.rc and modified here
 
-on init
-    # See storage config details at http://source.android.com/tech/storage/
-
-
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /mnt/media_rw/usba 0700 media_rw media_rw
-    mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/usba 0700 root root
-    export EXTERNAL_STORAGE /sdcard
-    export SECONDARY_STORAGE /storage/sdcard1
-    export OTG_STORAGE /storage/usba
-
-    # Support legacy paths
-    symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard0
-#ZTEMT end
-#NUBIA add for bootsound
-on property:sys.zte.boot.sound=1
-    start media
-#NUBIA end
-
-#NUBIA add for boot sound
-    chmod 0664 /system/media/audio/ui/bootup.wav
-    chmod 0755 /system/bin/bootsound.sh
-#NUBIA end
-
 #nubia, tp&lcd node start
 on post-fs-data
     mkdir /data/tp 0775 system system
@@ -79,16 +53,6 @@ on boot
     chown system system /sys/class/leds/nubia_led/device/grpfreq
     chown system system /sys/class/leds/nubia_led/device/grppwm
     chown system system /sys/class/leds/nubia_led/device/blink
-
-    chown system system /sys/class/leds/red/brightness
-    chown system system /sys/class/leds/red/blink
-
-    chown system system /sys/class/leds/green/brightness
-    chown system system /sys/class/leds/green/blink
-
-    chown system system /sys/class/leds/blue/brightness
-    chown system system /sys/class/leds/blue/blink
-
     chown system system /sys/class/leds/nubia_led/fade_parameter
     chown system system /sys/class/leds/nubia_led/grade_parameter
     chown system system /sys/class/leds/nubia_led/outn
@@ -96,23 +60,6 @@ on boot
 
 # ADDED BY ZTEMT
 # add the sensor sysfs permission
-    #gesture
-    chown system system /sys/class/gesture/gesture/enable
-    chown system system /sys/class/gesture/gesture/gesture_offset_init
-    chown system system /sys/class/gesture/gesture/gesture_data_safe_range_max
-    chown system system /sys/class/gesture/gesture/gesture_data_safe_range_min
-    chown system system /sys/class/gesture/gesture/gesture_offset_cal
-    chown system system /sys/class/gesture/gesture/gesture_offset_cal_start
-    chown system system /sys/class/gesture/gesture/gesture_channel_data_max
-
-    chmod 0644 /sys/class/gesture/gesture/enable
-    chmod 0644 /sys/class/gesture/gesture/gesture_offset_init
-    chmod 0644 /sys/class/gesture/gesture/gesture_data_safe_range_max
-    chmod 0644 /sys/class/gesture/gesture/gesture_data_safe_range_min
-    chmod 0644 /sys/class/gesture/gesture/gesture_offset_cal
-    chmod 0644 /sys/class/gesture/gesture/gesture_offset_cal_start
-    chmod 0644 /sys/class/gesture/gesture/gesture_channel_data_max
-
     #hall_device
     chown system system /sys/class/hall_device/hall_device/enable
     chmod 0644 /sys/class/hall_device/hall_device/enable
@@ -323,3 +270,33 @@ on property:sys.hardware.fingerprint=goodix
 on property:sys.hardware.fingerprint=fpc
     setprop ro.hardware.fingerprint fpc
 # nubia add end
+
+service imsqmidaemon /system/bin/imsqmidaemon
+    class main
+    user system
+    socket ims_qmid stream 0660 system radio
+    group radio net_raw log diag
+
+service imsdatadaemon /system/bin/imsdatadaemon
+    class main
+    user system
+    socket ims_datad stream 0660 system radio
+    group system wifi radio inet net_raw log diag net_admin
+    disabled
+
+service ims_rtp_daemon /system/bin/ims_rtp_daemon
+    class main
+    user system
+    socket ims_rtpd stream 0660 system radio
+    group radio net_raw diag inet log
+    disabled
+
+service imscmservice /system/bin/imscmservice
+    class main
+    user system
+    group radio net_raw diag diag log
+    disabled
+
+on property:sys.ims.DATA_DAEMON_STATUS=1
+    start ims_rtp_daemon
+    start imscmservice

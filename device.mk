@@ -135,17 +135,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     ueventd.qcom.rc \
-    init.class_main.sh \
     init.cmx.rc \
     init.mdm.sh \
     init.nubia.extend.usb.rc \
     init.nubia.sh \
     init.nubia.usb.rc \
     init.project.rc \
-    init.qcom.class_core.sh \
     init.qcom.early_boot.sh \
     init.qcom.rc \
-    init.qcom.sensors.sh \
     init.qcom.sh \
     init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
@@ -163,7 +160,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
     $(LOCAL_PATH)/etc/init.qcom.debug.sh:system/etc/init.qcom.debug.sh \
     $(LOCAL_PATH)/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
-    $(LOCAL_PATH)/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
     $(LOCAL_PATH)/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
     $(LOCAL_PATH)/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
     $(LOCAL_PATH)/etc/init.qcom.uicc.sh:system/etc/init.qcom.uicc.sh \

@@ -158,7 +158,7 @@
 /dev/msm_voicememo        0660   system     audio
 /dev/smd3                 0660   bluetooth  net_bt_stack
 /dev/smd2                 0660   bluetooth  net_bt_stack
-/dev/ttyHSL1              0660   system     system
+/dev/ttyHSL1              0666   system     system
 /dev/ttyHS1               0660   system     system
 /dev/mdm                  0660   system     radio
 /sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
