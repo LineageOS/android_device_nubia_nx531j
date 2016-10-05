@@ -109,6 +109,7 @@ persist.radio.apm_sim_not_pwdn=1
 persist.radio.sib16_support=1
 ro.telephony.ril.config=simactivation
 ro.telephony.default_network=22,22
+ro.telephony.default_cdma_sub=0
 ro.telephony.call_ring.multiple=false
 telephony.lteOnCdmaDevice=1
 
