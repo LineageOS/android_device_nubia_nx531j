@@ -49,3 +49,9 @@ vendor/lib64/libsdm-color.so|edd8f40b01cf7090605b99c4b9432517447635f0
 vendor/lib64/libsdm-diag.so|be5002f57a81f833955e175fd69a96df9fd60fa9
 vendor/lib64/libsdm-disp-apis.so|26aadf14251a337650c153f20defa758f09d3db7
 vendor/lib64/libsdmextension.so|0bc6c518d910d4262b132957e2413bd18278dec5
+
+# Thermal
+vendor/bin/thermal-engine|fbff51b060eff6fb7ca174db1c8130cfd0eba913
+-vendor/lib/libthermalclient.so|441e057fda789719c61ee9b9517775a4331eb9c3
+-vendor/lib64/libthermalclient.so|57bc26724b210d4f90213625f7991026099f5f7f
+vendor/lib64/libthermalioctl.so|6fc0447ef40786ef189e2e8b2d11aa1db72dbfdd

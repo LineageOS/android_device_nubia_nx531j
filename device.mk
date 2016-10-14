@@ -328,12 +328,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstlport
 
-# Thermal
-PRODUCT_PACKAGES += \
-    thermal-engine \
-    libthermalclient \
-    libthermalioctl
-
 # Wechat Fingerprint Payment
 PRODUCT_PACKAGES += \
     soter
