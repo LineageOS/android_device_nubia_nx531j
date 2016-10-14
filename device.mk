@@ -307,7 +307,6 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    qti-telephony-common \
     librmnetctl \
     libtime_genoff \
     libtinyxml2 \
