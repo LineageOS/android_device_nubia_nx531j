@@ -59,7 +59,7 @@ vendor/lib64/libsystem_health_mon.so|4f103b22a2cb25b134dbda647dd396fe9ef34715
 -vendor/app/imssettings/imssettings.apk|3020cdd3bc6d3c5bd147f2086fdd62fae108d81b
 
 # Thermal
-vendor/bin/thermal-engine|fbff51b060eff6fb7ca174db1c8130cfd0eba913
--vendor/lib/libthermalclient.so|441e057fda789719c61ee9b9517775a4331eb9c3
--vendor/lib64/libthermalclient.so|57bc26724b210d4f90213625f7991026099f5f7f
-vendor/lib64/libthermalioctl.so|6fc0447ef40786ef189e2e8b2d11aa1db72dbfdd
+vendor/bin/thermal-engine|9822b7776439c0d8eb5054b95c9ad3b67d7f0377
+-vendor/lib/libthermalclient.so|f7615362521e164a765b3765dc9b3ba9daf3a224
+-vendor/lib64/libthermalclient.so|af7c25e8f5fac2acaaef495c43faf34286a64fdf
+vendor/lib64/libthermalioctl.so|3748f0ba42783d9a413d3793ebfca1b18c5b4b90
