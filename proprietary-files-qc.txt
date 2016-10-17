@@ -31,6 +31,10 @@ vendor/lib64/libxt_native.so|d5ff891c5e8a24d42e38eb76d51f58e0bdb1d873
 vendor/lib64/libxtadapter.so|3f763934a8a33e2f3c3e3d8f579a694306c21add
 vendor/lib64/libxtwifi_ulp_adaptor.so|6f69ec62b83201373b2ba4df4f68226ff9351d86
 
+# Perf
+bin/energy-awareness|fd652a3805723dced5a53ac757ba59a9db2e973f
+bin/msm_irqbalance|b68e174f911823eecabe0c5cbc993cdf0f18968f
+
 # Radio
 etc/permissions/embms.xml|5e1b492874c221a7e1188fc3a5369d32b3e67969
 etc/permissions/qcnvitems.xml|dc0e70cace2317b5169a454cbc2bbf8887c18d55

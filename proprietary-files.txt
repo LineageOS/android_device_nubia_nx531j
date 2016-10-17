@@ -452,19 +452,6 @@ vendor/lib64/libQtiTether.so
 # NFC firmware
 vendor/firmware/libpn548ad_fw.so
 
-# Perf
-bin/energy-awareness
-bin/iop
-bin/msm_irqbalance
-lib64/libqti-iop.so
-vendor/bin/perfd
-vendor/lib/libqc-opt.so
-vendor/lib/libqti-iop-client.so
-vendor/lib/libqti-perfd-client.so
-vendor/lib64/libqc-opt.so
-vendor/lib64/libqti-iop-client.so
-vendor/lib64/libqti-perfd-client.so
-
 # Peripheral manager
 bin/pm-proxy
 bin/pm-service

@@ -42,7 +42,11 @@ write_headers
 # The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
 
+# Qualcomm BSP blobs
 write_makefiles "$MY_DIR"/proprietary-files-qc.txt
+
+# Qualcomm performance blobs
+write_makefiles "$MY_DIR"/proprietary-files-qc-perf.txt
 
 echo '' >> "$PRODUCTMK"
 echo '$(call inherit-product, vendor/qcom/binaries/msm8996/graphics/graphics-vendor.mk)' >> "$PRODUCTMK"
