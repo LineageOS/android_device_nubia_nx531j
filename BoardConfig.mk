@@ -71,6 +71,9 @@ TARGET_KERNEL_CONFIG := msm8996-NX531J-perf_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_APPEND_DTB := true
 
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
+
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
