@@ -16,6 +16,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- Gesture shortcuts -->
+  <string name="touchscreen_palm_sleep_title">盖掌睡眠</string>
+  <string name="touchscreen_palm_sleep_summary">盖住屏幕使手机睡眠</string>
+
   <!-- Button settings -->
   <string name="button_panel_title">更多按钮</string>
   <string name="button_swap_title">交换按钮</string>

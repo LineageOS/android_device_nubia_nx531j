@@ -44,6 +44,20 @@
         </provider>
 
         <activity
+            android:name=".TouchscreenGestureSettings"
+            android:label="@*cyanogenmod.platform:string/screen_gestures_panel_title">
+            <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.device" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_gestures" />
+        </activity>
+
+        <activity
             android:name=".ButtonSettings"
             android:label="@string/button_panel_title">
             <intent-filter>

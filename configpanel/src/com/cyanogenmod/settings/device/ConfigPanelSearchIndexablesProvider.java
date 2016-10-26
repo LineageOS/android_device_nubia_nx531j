@@ -37,11 +37,15 @@ public class ConfigPanelSearchIndexablesProvider extends SearchIndexablesProvide
     private static final String TAG = "ConfigPanelSearchIndexablesProvider";
 
     public static final int SEARCH_IDX_BUTTON_PANEL = 0;
+    public static final int SEARCH_IDX_TOUCHSCREEN_PANEL = 1;
 
     private static SearchIndexableResource[] INDEXABLE_RES = new SearchIndexableResource[]{
             new SearchIndexableResource(1, R.xml.button_panel,
                     ButtonSettings.class.getName(),
                     R.drawable.ic_settings_additional_buttons),
+            new SearchIndexableResource(1, R.xml.touchscreen_panel,
+                    TouchscreenGestureSettings.class.getName(),
+                    R.drawable.ic_settings_gestures),
     };
 
     @Override
@@ -54,6 +58,9 @@ public class ConfigPanelSearchIndexablesProvider extends SearchIndexablesProvide
         MatrixCursor cursor = new MatrixCursor(INDEXABLES_XML_RES_COLUMNS);
         if (Startup.hasButtonProcs() /* show button panel */) {
             cursor.addRow(generateResourceRef(INDEXABLE_RES[SEARCH_IDX_BUTTON_PANEL]));
+        }
+        if (Startup.hasTouchscreenGestures() /* show touchscreen panel */) {
+            cursor.addRow(generateResourceRef(INDEXABLE_RES[SEARCH_IDX_TOUCHSCREEN_PANEL]));
         }
         return cursor;
     }
