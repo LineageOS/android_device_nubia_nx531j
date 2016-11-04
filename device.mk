@@ -144,6 +144,7 @@ PRODUCT_PACKAGES += \
     init.nubia.usb.rc \
     init.project.rc \
     init.qcom.early_boot.sh \
+    init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.syspart_fixup.sh \
