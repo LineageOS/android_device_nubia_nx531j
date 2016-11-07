@@ -36,6 +36,10 @@ Camera.no_navigation_bar=true
 ro.config.devicename=nubia Z11
 persist.camera.stats.test=5
 
+# HAX - remove ASAP
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
+
 # CNE
 persist.cne.feature=1
 
