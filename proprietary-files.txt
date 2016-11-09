@@ -461,13 +461,9 @@ vendor/lib64/libperipheral_client.so
 vendor/lib/libdisp-aba.so
 vendor/lib/libmm-als.so
 vendor/lib/libmm-color-convertor.so
-vendor/lib/libmm-disp-apis.so
-vendor/lib/libmm-qdcm.so
 vendor/lib64/libdisp-aba.so
 vendor/lib64/libmm-als.so
 vendor/lib64/libmm-color-convertor.so
-vendor/lib64/libmm-disp-apis.so
-vendor/lib64/libmm-qdcm.so
 
 # QMI
 bin/irsc_util
