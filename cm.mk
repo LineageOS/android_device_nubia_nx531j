@@ -20,9 +20,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/verity.mk)
 # Inherit device configuration
 $(call inherit-product, device/nubia/nx531j/device.mk)
 
-# Enhanced NFC
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
-
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
