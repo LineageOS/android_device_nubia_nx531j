@@ -107,16 +107,23 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
+persist.data.qmi.adb_logmask=0
+persist.logd.size.radio=4M
+persist.net.doxlat=true
 persist.radio.multisim.config=dsds
-persist.volte_enalbed_by_hw=1
-persist.radio.data_ltd_sys_ind=1
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.sib16_support=1
+persist.radio.force_on_dc=true
+persist.radio.rat_on=combine
+persist.radio.custom_ecc=1
+persist.radio.NO_STAPA=1
+persist.radio.VT_HYBRID_ENABLE=1
+persist.radio.poweron_opt=1
 ro.telephony.ril.config=simactivation
 ro.telephony.default_network=22,22
 ro.telephony.default_cdma_sub=0
 ro.telephony.call_ring.multiple=false
-telephony.lteOnCdmaDevice=1
+telephony.lteOnCdmaDevice=1,1
 
 # RmNet Data
 persist.rmnet.data.enable=true
