@@ -36,23 +36,7 @@ bin/energy-awareness|fd652a3805723dced5a53ac757ba59a9db2e973f
 bin/msm_irqbalance|b68e174f911823eecabe0c5cbc993cdf0f18968f
 
 # Radio
-etc/permissions/embms.xml|5e1b492874c221a7e1188fc3a5369d32b3e67969
-etc/permissions/qcnvitems.xml|dc0e70cace2317b5169a454cbc2bbf8887c18d55
-etc/permissions/qcrilhook.xml|9fc58a3d54d20ac1d53bab14608815121aefbce5
-etc/permissions/telephonyservice.xml|3a6bc2a522270f968ff5a332b8781c0289e6d1ef
-framework/embmslibrary.jar|be640ff495b701f6ccc69e1b3f5874bfab09fa1a
 framework/qti-telephony-common.jar|eabfa165b2c4d1d6c7baae424bf13a0e8575e8f6
-framework/QtiTelephonyServicelibrary.jar|5ffa355905954dd804af059a1a95057257bbb6a3
-vendor/bin/qti|df5fd165274c55d2362cf39293c7362710828ec5
-vendor/lib64/libconfigdb.so|7c57d98f706e291081911802a053f734651e3644
-vendor/lib64/liblqe.so|b2ce01afaa9b394b4628946ea9be0cae750c65fb
-vendor/lib64/libmdmdetect.so|e376601c77840f9d6956171a9660f56f91928b03
-vendor/lib64/libnetmgr.so|84d135cf6d193ab10f3417fccb0b642613685c80
-vendor/lib64/libqcmaputils.so|62dfd8645468399a23c6248c224958dbeac6c3e5
-vendor/lib64/libril-qc-qmi-1.so|cbd9e1e4f17620cbf9b11d67d1594e658f85b38e
-vendor/lib64/libril-qc-radioconfig.so|c02d114dfac15540fd9a0b6c5f7dd8f5a604a0d8
-vendor/lib64/libril-qcril-hook-oem.so|bfd06e7fdbed9a66111c5e81949718f4562136fe
-vendor/lib64/libsystem_health_mon.so|4f103b22a2cb25b134dbda647dd396fe9ef34715
 
 # Radio - IMS
 -vendor/app/ims/ims.apk|138de3a169d8c4703d9e5645abeb19e427b04909
