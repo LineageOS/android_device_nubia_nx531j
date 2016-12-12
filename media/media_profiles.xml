@@ -47,7 +47,7 @@
 <!ELEMENT EncoderOutputFileFormat EMPTY>
 <!ATTLIST EncoderOutputFileFormat name (mp4|3gp) #REQUIRED>
 <!ELEMENT VideoEncoderCap EMPTY>
-<!ATTLIST VideoEncoderCap name (h265|h264|h263|m4v|wmv) #REQUIRED>
+<!ATTLIST VideoEncoderCap name (hevc|h264|h263|m4v|wmv) #REQUIRED>
 <!ATTLIST VideoEncoderCap enabled (true|false) #REQUIRED>
 <!ATTLIST VideoEncoderCap minBitRate CDATA #REQUIRED>
 <!ATTLIST VideoEncoderCap maxBitRate CDATA #REQUIRED>
@@ -748,6 +748,43 @@
 
   <EncoderOutputFileFormat name="3gp" />
   <EncoderOutputFileFormat name="mp4" />
+
+  <!--
+       If a codec is not enabled, it is invisible to the applications
+       In other words, the applications won't be able to use the codec
+       or query the capabilities of the codec at all if it is disabled
+  -->
+  <VideoEncoderCap name="h264" enabled="true"
+      minBitRate="64000" maxBitRate="42000000"
+      minFrameWidth="176" maxFrameWidth="4096"
+      minFrameHeight="144" maxFrameHeight="2160"
+      minFrameRate="15" maxFrameRate="30"
+      maxHFRFrameWidth="1920" maxHFRFrameHeight="1080"
+      maxHFRMode="120"  />
+
+  <VideoEncoderCap name="h263" enabled="true"
+      minBitRate="64000" maxBitRate="2000000"
+      minFrameWidth="176" maxFrameWidth="800"
+      minFrameHeight="144" maxFrameHeight="480"
+      minFrameRate="15" maxFrameRate="30"
+      maxHFRFrameWidth="0" maxHFRFrameHeight="0"
+      maxHFRMode="0"  />
+
+  <VideoEncoderCap name="m4v" enabled="true"
+      minBitRate="64000" maxBitRate="20000000"
+      minFrameWidth="176" maxFrameWidth="1920"
+      minFrameHeight="144" maxFrameHeight="1088"
+      minFrameRate="15" maxFrameRate="30"
+      maxHFRFrameWidth="0" maxHFRFrameHeight="0"
+      maxHFRMode="0"  />
+
+  <VideoEncoderCap name="hevc" enabled="true"
+      minBitRate="64000" maxBitRate="100000000"
+      minFrameWidth="176" maxFrameWidth="4096"
+      minFrameHeight="144" maxFrameHeight="2160"
+      minFrameRate="15" maxFrameRate="30"
+      maxHFRFrameWidth="0" maxHFRFrameHeight="0"
+      maxHFRMode="0"  />
 
   <AudioEncoderCap name="aac" enabled="true"
       minBitRate="8000" maxBitRate="192000"
