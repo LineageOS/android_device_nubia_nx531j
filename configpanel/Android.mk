@@ -25,7 +25,12 @@ LOCAL_PACKAGE_NAME := ConfigPanel
 LOCAL_STATIC_JAVA_LIBRARIES := \
     org.cyanogenmod.platform.internal
 
-LOCAL_PRIVILEGED_MODULE := true
+LOCAL_RESOURCE_DIR := \
+    $(LOCAL_PATH)/res \
+    packages/resources/devicesettings/res
+
+LOCAL_AAPT_FLAGS := --auto-add-overlay
+
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_PACKAGE)
