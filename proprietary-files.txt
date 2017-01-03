@@ -542,6 +542,7 @@ vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
 vendor/lib/libqcci_legacy.so
+vendor/lib/libqcmaputils.so
 vendor/lib/libqdi.so
 vendor/lib/libqdp.so
 vendor/lib/libqmi.so
@@ -561,6 +562,7 @@ vendor/lib64/libdsi_netctrl.so
 vendor/lib64/libdsutils.so
 vendor/lib64/libidl.so
 vendor/lib64/libqcci_legacy.so
+vendor/lib64/libqcmaputils.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdp.so
 vendor/lib64/libqmi.so
@@ -576,26 +578,12 @@ vendor/lib64/libquipc_os_api.so
 vendor/lib64/libsmemlog.so
 
 # Radio
--app/datastatusnotification/datastatusnotification.apk
 -app/embms/embms.apk
--app/fastdormancy/fastdormancy.apk
--app/QtiTelephonyService/QtiTelephonyService.apk
--app/shutdownlistener/shutdownlistener.apk
-bin/ipacm-diag
-bin/netmgrd
-bin/qmuxd
-bin/radish
-bin/rmt_storage
-bin/tftp_server
 etc/modem_ota/CM/mcfg_sw.mbn
 etc/modem_ota/CT/mcfg_sw.mbn
 etc/modem_ota/CU/mcfg_sw.mbn
 etc/modem_ota/ROW/mcfg_sw.mbn
--framework/qcnvitems.jar
--framework/qcrilhook.jar
--framework/telephony-static-config.jar
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-vendor/qcril.db
+etc/permissions/embms.xml
 
 # Radio - IMS
 bin/ims_rtp_daemon
