@@ -15,7 +15,6 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/verity.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/nubia/nx531j/device.mk)
@@ -43,3 +42,13 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=nubia/NX531J/NX531J:6.0.1/MMB29M/nubia07271842:user/release-keys
 
 TARGET_VENDOR := nubia
+
+# Verity
+PRODUCT_SUPPORTS_BOOT_SIGNER := true
+PRODUCT_SUPPORTS_VERITY := true
+PRODUCT_SUPPORTS_VERITY_FEC := true
+
+PRODUCT_VERITY_SIGNING_KEY := build/target/product/security/verity
+
+PRODUCT_PACKAGES += \
+        verity_key
