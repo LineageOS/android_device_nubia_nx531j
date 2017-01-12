@@ -174,7 +174,7 @@ PRODUCT_PACKAGES += \
 
 # ConfigPanel
 PRODUCT_PACKAGES += \
-    ConfigPanel \
+    ConfigPanel
 
 # Display
 PRODUCT_PACKAGES += \
