@@ -105,7 +105,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     $(LOCAL_PATH)/audio/vendor/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/vendor/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
-    $(LOCAL_PATH)/audio/vendor/dolby:system/vendor/etc/dolby
+#    $(LOCAL_PATH)/audio/vendor/dolby:system/vendor/etc/dolby
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -168,8 +168,8 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig
 
 # ConfigPanel
-PRODUCT_PACKAGES += \
-    ConfigPanel \
+#PRODUCT_PACKAGES += \
+#    ConfigPanel \
 
 # Display
 PRODUCT_PACKAGES += \
@@ -186,7 +186,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # DPM
 PRODUCT_BOOT_JARS += \
-    com.qti.dpmframework \
+#    com.qti.dpmframework \
     dpmapi \
     tcmclient
 
@@ -195,9 +195,9 @@ PRODUCT_PACKAGES += \
     fingerprintd
 
 # GPS
-PRODUCT_PACKAGES += \
-    gps.msm8996 \
-    libcurl
+#PRODUCT_PACKAGES += \
+#    gps.msm8996 \
+#    libcurl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/flp.conf:system/etc/flp.conf \
@@ -207,17 +207,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/sap.conf:system/etc/sap.conf \
     $(LOCAL_PATH)/gps/etc/xtwifi.conf:system/etc/xtwifi.conf
 
-PRODUCT_BOOT_JARS += \
-    com.qti.location.sdk
+#PRODUCT_BOOT_JARS += \
+#    com.qti.location.sdk
 
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/nubia_synaptics_dsx.kl:system/usr/keylayout/nubia_synaptics_dsx.kl
 
 # IPA Manager
-PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml
+#PRODUCT_PACKAGES += \
+#    ipacm \
+#    IPACM_cfg.xml
 
 # IPC router config
 PRODUCT_COPY_FILES += \
@@ -275,7 +275,7 @@ PRODUCT_PACKAGES += \
     libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
-    libOmxCore \
+#    libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
@@ -313,7 +313,7 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full
 
 PRODUCT_BOOT_JARS += \
-    qcnvitems \
+#    qcnvitems \
     qcrilhook \
     telephony-static-config
 

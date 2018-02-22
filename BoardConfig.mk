@@ -72,7 +72,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/nubia/msm8996
 TARGET_KERNEL_CONFIG := msm8996-NX531J-perf_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_APPEND_DTB := true
+#TARGET_KERNEL_APPEND_DTB := true
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
@@ -134,10 +134,10 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # CM Hardware
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += \
-    hardware/cyanogen/cmhw \
-    $(DEVICE_PATH)/cmhw
+#BOARD_USES_CYANOGEN_HARDWARE := true
+#BOARD_HARDWARE_CLASS += \
+#    /hardware/lineage/lineagehw \
+#    $(DEVICE_PATH)/cmhw
 TARGET_TAP_TO_WAKE_NODE := "/data/tp/easy_wakeup_gesture"
 
 # CNE and DPM
@@ -159,6 +159,9 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+TARGET_USES_HWC2 := true
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_QCOM_DISPLAY_BSP := true
 
 # Enable dexpreopt to speed boot time
 ifeq ($(HOST_OS),linux)
@@ -201,8 +204,8 @@ PROTOBUF_SUPPORTED := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/recovery.fstab
-TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+#TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
+#TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := false
@@ -229,8 +232,8 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_P2P := "p2p"
-WIFI_DRIVER_MODULE_NAME := "wlan"
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+#WIFI_DRIVER_MODULE_NAME := "wlan"
+#WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # inherit from the proprietary version
