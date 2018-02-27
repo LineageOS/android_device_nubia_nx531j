@@ -177,8 +177,24 @@ PRODUCT_PACKAGES += \
     gralloc.msm8996 \
     hwcomposer.msm8996 \
     memtrack.msm8996 \
+    libdisplayconfig \
     liboverlay \
-    libtinyxml
+    libqdMetaData.system \
+    libtinyxml \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    android.hardware.configstore@1.0-service \
+    android.hardware.broadcastradio@1.0-impl \
+    vendor.display.color@1.0-service \
+    vendor.display.color@1.0-impl
+
+PRODUCT_PROPERTY_OVERRIDES  += \
+    ro.opengles.version=196610
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -195,9 +211,10 @@ PRODUCT_PACKAGES += \
     fingerprintd
 
 # GPS
-#PRODUCT_PACKAGES += \
-#    gps.msm8996 \
-#    libcurl
+PRODUCT_PACKAGES += \
+    libcurl \
+    android.hardware.gnss@1.0-impl-qti \
+    android.hardware.gnss@1.0-service-qti
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/flp.conf:system/etc/flp.conf \
@@ -237,8 +254,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES +=	\
     keystore.msm8996
 
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
+
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service\
     lights.msm8996
 
 # Media
@@ -262,6 +286,8 @@ PRODUCT_PACKAGES += \
     nqnfcee_access.xml \
     nqnfcse_access.xml \
     NQNfcNci \
+    android.hardware.nfc@1.0-impl \
+    android.hardware.nfc@1.0-service\
     Tag
 
 PRODUCT_COPY_FILES += \
@@ -275,7 +301,7 @@ PRODUCT_PACKAGES += \
     libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
-#    libOmxCore \
+    libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
@@ -295,7 +321,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.msm8996
+    android.hardware.power@1.0-service-qti
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -319,7 +345,8 @@ PRODUCT_BOOT_JARS += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    sensors.msm8996 \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service\
     hals.conf \
     sensor_def_qcomdev.conf
 
@@ -337,6 +364,7 @@ PRODUCT_PACKAGES += \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf \
+    android.hardware.wifi@1.0-service\
     wcnss_service
 
 PRODUCT_COPY_FILES += \

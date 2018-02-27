@@ -23,7 +23,7 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_PACKAGE_NAME := ConfigPanel
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    org.mokee.platform.internal
+    org.lineageos.platform.internal
 
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res \
