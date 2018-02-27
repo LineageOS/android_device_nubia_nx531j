@@ -90,6 +90,12 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     tinymix
 
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-service \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.soundtrigger@2.0-impl
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/aanc_tuning_mixer.txt:system/etc/aanc_tuning_mixer.txt \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/etc/audio_effects.conf \
@@ -301,7 +307,7 @@ PRODUCT_PACKAGES += \
     libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
-    libOmxCore \
+#    libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
