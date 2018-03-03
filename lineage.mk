@@ -21,9 +21,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/verity.mk)
 $(call inherit-product, device/nubia/nx531j/device.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := cm_nx531j
+PRODUCT_NAME := lineage_nx531j
 PRODUCT_DEVICE := nx531j
 PRODUCT_MANUFACTURER := nubia
 PRODUCT_BRAND := nubia

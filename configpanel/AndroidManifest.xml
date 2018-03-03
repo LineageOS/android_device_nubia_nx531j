@@ -21,7 +21,7 @@
           android:versionName="2.4" >
 
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
-    <uses-permission android:name="cyanogenmod.permission.HARDWARE_ABSTRACTION_ACCESS" />
+    <uses-permission android:name="mokee.permission.HARDWARE_ABSTRACTION_ACCESS" />
 
     <uses-sdk
         android:minSdkVersion="24" />
@@ -75,7 +75,7 @@
 
         <receiver android:name=".Startup" >
             <intent-filter>
-                <action android:name="cyanogenmod.intent.action.INITIALIZE_CM_HARDWARE" />
+                <action android:name="mokee.intent.action.INITIALIZE_CM_HARDWARE" />
             </intent-filter>
         </receiver>
     </application>
